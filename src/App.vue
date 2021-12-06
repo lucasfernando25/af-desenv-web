@@ -2,21 +2,23 @@
   <v-app>
     <AppBar></AppBar>
     <ToolBar></ToolBar>
-
-    <!-- Sizes your content based upon application components -->
-    <v-container style="margin-top: 4rem; margin-bottom: 7rem">
+    <v-container 
+    style="margin-top: 4rem; margin-bottom: 7rem">
       <router-view />
-      <!-- Provides the application the proper gutter -->
     </v-container>
     <v-footer app>
-      <v-footer app padless style="background: #ea1d2c">
-        <v-row justify="center" no-gutters>
+      <v-footer app 
+      padless 
+      style="background: #ea1d2c">
+        <v-row justify="center" 
+        no-gutters>
           <h1 style="color: white; font-size: 1.6rem; padding: 1vh">
             Comida Fácil
           </h1>
         </v-row>
       </v-footer>
-      <v-bottom-navigation :value="value" app grow style="padding-top:0.8vh">
+      <v-bottom-navigation :value="value" 
+      app grow style="padding-top:0.8vh">
         <router-link to="/">
           <v-btn>
             <span>Inicio</span>
@@ -53,9 +55,9 @@
 </template>
 
 <script>
+
 import AppBar from "./components/app-bar.vue";
 import ToolBar from "./components/tool-bar.vue";
-import axios from "axios";
 
 export default {
   name: "App",
@@ -63,14 +65,7 @@ export default {
     AppBar,
     ToolBar,
   },
-  data: () => {
-    return { info: null };
-  },
-  mounted() {
-    axios
-      .get("https://foodbukka.herokuapp.com/api/v1/menu")
-      .then((response) => (this.info = response));
-  },
+
 };
 </script>
 <style>
